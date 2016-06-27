@@ -80,12 +80,6 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '#FFFFFF'                   == get_option( $scp_prefix . 'setting_vkontakte_color_background' ) );
 		$this->assertTrue( '#2B587A'                   == get_option( $scp_prefix . 'setting_vkontakte_color_text' ) );
 		$this->assertTrue( '#5B7FA6'                   == get_option( $scp_prefix . 'setting_vkontakte_color_button' ) );
-
-		// Odnoklassniki
-		$this->assertTrue( __( 'Odnoklassniki', L10N_SCP_PREFIX ) == get_option( $scp_prefix . 'setting_odnoklassniki_tab_caption' ) );
-		$this->assertTrue( '57122812461115'                       == get_option( $scp_prefix . 'setting_odnoklassniki_group_id' ) );
-		$this->assertTrue( 400                                    == get_option( $scp_prefix . 'setting_odnoklassniki_width' ) );
-		$this->assertTrue( 260                                    == get_option( $scp_prefix . 'setting_odnoklassniki_height' ) );
 	}
 
 	private function upgradeTo03() {
@@ -93,8 +87,8 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 
 		$scp_prefix = self::$plugin->get_scp_prefix();
 
-		$this->assertTrue( '0.3'                              == get_option( $scp_prefix . 'version' ) );
-		$this->assertTrue( 'vkontakte,facebook,odnoklassniki' == get_option( $scp_prefix . 'setting_tabs_order' ) );
+		$this->assertTrue( '0.3'                == get_option( $scp_prefix . 'version' ) );
+		$this->assertTrue( 'vkontakte,facebook' == get_option( $scp_prefix . 'setting_tabs_order' ) );
 	}
 
 	private function upgradeTo04() {
@@ -113,27 +107,14 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '0.5' == get_option( $scp_prefix . 'version' ) );
 
 		// Common
-		$this->assertTrue( 'vkontakte,facebook,odnoklassniki,googleplus' == get_option( $scp_prefix . 'setting_tabs_order' ) );
-		$this->assertTrue( 1                                             == get_option( $scp_prefix . 'setting_debug_mode' ) );
-		$this->assertTrue( 400                                           == get_option( $scp_prefix . 'setting_container_width' ) );
-		$this->assertTrue( 480                                           == get_option( $scp_prefix . 'setting_container_height' ) );
+		$this->assertTrue( 'vkontakte,facebook' == get_option( $scp_prefix . 'setting_tabs_order' ) );
+		$this->assertTrue( 1                    == get_option( $scp_prefix . 'setting_debug_mode' ) );
+		$this->assertTrue( 400                  == get_option( $scp_prefix . 'setting_container_width' ) );
+		$this->assertTrue( 480                  == get_option( $scp_prefix . 'setting_container_height' ) );
 
-		// Google+
-		$this->assertTrue( 0                                             == get_option( $scp_prefix . 'setting_use_googleplus' ) );
-		$this->assertTrue( __( 'Google+', L10N_SCP_PREFIX )              == get_option( $scp_prefix . 'setting_googleplus_tab_caption' ) );
-		$this->assertTrue( 0                                             == get_option( $scp_prefix . 'setting_googleplus_show_description' ) );
-		$this->assertTrue( ''                                            === get_option( $scp_prefix . 'setting_googleplus_description' ) );
-		$this->assertTrue( '//plus.google.com/u/0/117676776729232885815' == get_option( $scp_prefix . 'setting_googleplus_page_url' ) );
-		$this->assertTrue( 'ru'                                          == get_option( $scp_prefix . 'setting_googleplus_locale' ) );
-		$this->assertTrue( 400                                           == get_option( $scp_prefix . 'setting_googleplus_size' ) );
-		$this->assertTrue( 'light'                                       == get_option( $scp_prefix . 'setting_googleplus_theme' ) );
-		$this->assertTrue( 1                                             == get_option( $scp_prefix . 'setting_googleplus_show_cover_photo' ) );
-		$this->assertTrue( 1                                             == get_option( $scp_prefix . 'setting_googleplus_show_tagline' ) );
-
-		// Facebook, VK, Odnoklassniki
+		// Facebook, VK
 		$this->assertTrue( 400 == get_option( $scp_prefix . 'setting_facebook_height' ) );
 		$this->assertTrue( 400 == get_option( $scp_prefix . 'setting_vkontakte_height' ) );
-		$this->assertTrue( 400 == get_option( $scp_prefix . 'setting_odnoklassniki_height' ) );
 	}
 
 	private function upgradeTo06() {
@@ -144,22 +125,7 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '0.6' == get_option( $scp_prefix . 'version' ) );
 
 		// Common
-		$this->assertTrue( 'vkontakte,facebook,odnoklassniki,googleplus,twitter' == get_option( $scp_prefix . 'setting_tabs_order' ) );
-
-		// Twitter
-		$this->assertTrue( 0                                == get_option( $scp_prefix . 'setting_use_twitter' ) );
-		$this->assertTrue( __( 'Twitter', L10N_SCP_PREFIX ) == get_option( $scp_prefix . 'setting_twitter_tab_caption' ) );
-		$this->assertTrue( 0                                == get_option( $scp_prefix . 'setting_twitter_show_description' ) );
-		$this->assertTrue( ''                               === get_option( $scp_prefix . 'setting_twitter_description' ) );
-		$this->assertTrue( ''                               === get_option( $scp_prefix . 'setting_twitter_username' ) );
-		$this->assertTrue( ''                               === get_option( $scp_prefix . 'setting_twitter_widget_id' ) );
-		$this->assertTrue( 'light'                          == get_option( $scp_prefix . 'setting_twitter_theme' ) );
-		$this->assertTrue( '#CC0000'                        == get_option( $scp_prefix . 'setting_twitter_link_color' ) );
-		$this->assertTrue( 5                                == get_option( $scp_prefix . 'setting_twitter_tweet_limit' ) );
-		$this->assertTrue( 0                                == get_option( $scp_prefix . 'setting_twitter_show_replies' ) );
-		$this->assertTrue( 400                              == get_option( $scp_prefix . 'setting_twitter_width' ) );
-		$this->assertTrue( 400                              == get_option( $scp_prefix . 'setting_twitter_height' ) );
-		$this->assertTrue( ''                               === get_option( $scp_prefix . 'setting_twitter_chrome' ) );
+		$this->assertTrue( 'vkontakte,facebook' == get_option( $scp_prefix . 'setting_tabs_order' ) );
 	}
 
 	private function upgradeTo061() {
@@ -178,7 +144,6 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 
 		$this->assertTrue( '0.6.2' == get_option( $scp_prefix . 'version' ) );
 		$this->assertTrue( 0       == get_option( $scp_prefix . 'setting_close_popup_by_clicking_anywhere' ) );
-		$this->assertTrue( 0       == get_option( $scp_prefix . 'setting_show_on_mobile_devices' ) );
 	}
 
 	private function upgradeTo063() {
@@ -218,7 +183,6 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$scp_prefix = self::$plugin->get_scp_prefix();
 
 		$this->assertTrue( '0.6.5' == get_option( $scp_prefix . 'version' ) );
-		$this->assertTrue( 'person' == get_option( $scp_prefix . 'setting_googleplus_page_type' ) );
 	}
 
 	private function upgradeTo066() {
@@ -258,17 +222,7 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '0.6.8' == get_option( $scp_prefix . 'version' ) );
 
 		// Common
-		$this->assertTrue( 'vkontakte,facebook,odnoklassniki,googleplus,twitter,pinterest' == get_option( $scp_prefix . 'setting_tabs_order' ) );
-
-		// Pinterest
-		$this->assertTrue( 0                                  == get_option( $scp_prefix . 'setting_use_pinterest' ) );
-		$this->assertTrue( __( 'Pinterest', L10N_SCP_PREFIX ) == get_option( $scp_prefix . 'setting_pinterest_tab_caption' ) );
-		$this->assertTrue( 0                                  == get_option( $scp_prefix . 'setting_pinterest_show_description' ) );
-		$this->assertTrue( ''                                 === get_option( $scp_prefix . 'setting_pinterest_description' ) );
-		$this->assertTrue( 'http://ru.pinterest.com/gruz0/'   == get_option( $scp_prefix . 'setting_pinterest_profile_url' ) );
-		$this->assertTrue( 60                                 == get_option( $scp_prefix . 'setting_pinterest_image_width' ) );
-		$this->assertTrue( 380                                == get_option( $scp_prefix . 'setting_pinterest_width' ) );
-		$this->assertTrue( 300                                == get_option( $scp_prefix . 'setting_pinterest_height' ) );
+		$this->assertTrue( 'vkontakte,facebook' == get_option( $scp_prefix . 'setting_tabs_order' ) );
 	}
 
 	private function upgradeTo069() {
@@ -381,23 +335,17 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '0.7.4' == get_option( $scp_prefix . 'version' ) );
 
 		// Common
-		$this->assertTrue( 'all'                        == get_option( $scp_prefix . 'visitor_registered_and_role_equals_to' ) );
-		$this->assertTrue( 0                            == get_option( $scp_prefix . 'setting_use_icons_instead_of_labels_in_tabs' ) );
-		$this->assertTrue( '2x'                         == get_option( $scp_prefix . 'setting_icons_size_on_desktop' ) );
-
-		$this->assertTrue( 'Follow Us on Social Media!' == get_option( $scp_prefix . 'setting_plugin_title_on_mobile_devices' ) );
-		$this->assertTrue( '2x'                         == get_option( $scp_prefix . 'setting_icons_size_on_mobile_devices' ) );
-		$this->assertTrue( 0                            == get_option( $scp_prefix . 'event_hide_element_after_click_on_it' ) );
-		$this->assertTrue( 1                            == get_option( $scp_prefix . 'setting_show_admin_bar_menu' ) );
+		$this->assertTrue( 'all' == get_option( $scp_prefix . 'visitor_registered_and_role_equals_to' ) );
+		$this->assertTrue( 0     == get_option( $scp_prefix . 'setting_use_icons_instead_of_labels_in_tabs' ) );
+		$this->assertTrue( '2x'  == get_option( $scp_prefix . 'setting_icons_size_on_desktop' ) );
+		$this->assertTrue( 0     == get_option( $scp_prefix . 'event_hide_element_after_click_on_it' ) );
+		$this->assertTrue( 1     == get_option( $scp_prefix . 'setting_show_admin_bar_menu' ) );
 
 		// Facebook
-		$this->assertTrue( 0                            == get_option( $scp_prefix . 'setting_facebook_close_window_after_join' ) );
+		$this->assertTrue( 0     == get_option( $scp_prefix . 'setting_facebook_close_window_after_join' ) );
 
 		// VK
 		$this->assertTrue( 'https://vk.com/blogsonwordpress_new' == get_option( $scp_prefix . 'setting_vkontakte_page_url' ) );
-
-		// Odnoklassniki
-		$this->assertTrue( 'https://ok.ru/group/57122812461115' == get_option( $scp_prefix . 'setting_odnoklassniki_group_url' ) );
 	}
 
 	private function upgradeTo075() {
