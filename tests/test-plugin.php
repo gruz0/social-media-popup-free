@@ -335,7 +335,6 @@ class Social_Media_Popup_Tests extends PHPUnit_Framework_TestCase {
 		$this->assertTrue( '0.7.4' == get_option( $scp_prefix . 'version' ) );
 
 		// Common
-		$this->assertTrue( 'all' == get_option( $scp_prefix . 'visitor_registered_and_role_equals_to' ) );
 		$this->assertTrue( 0     == get_option( $scp_prefix . 'setting_use_icons_instead_of_labels_in_tabs' ) );
 		$this->assertTrue( '2x'  == get_option( $scp_prefix . 'setting_icons_size_on_desktop' ) );
 		$this->assertTrue( 0     == get_option( $scp_prefix . 'event_hide_element_after_click_on_it' ) );
