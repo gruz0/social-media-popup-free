@@ -29,7 +29,7 @@ if ( ! array_key_exists( 'social-media-popup', $GLOBALS ) ) {
 		if (isset( $social_media_popup) ) {
 			// Добавляем пункт "Настройки" в раздел плагинов в WordPress
 			function social_media_popup_plugin_settings_link( $links ) {
-				$settings_link = '<a href="admin.php?page=social_media_popup">' . __( 'Settings', L10N_SCP_PREFIX ) . '</a>';
+				$settings_link = '<a href="admin.php?page=social_media_popup_free">' . __( 'Settings', L10N_SCP_PREFIX ) . '</a>';
 				array_unshift( $links, $settings_link );
 				return $links;
 			}

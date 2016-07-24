@@ -296,7 +296,6 @@ class Social_Media_Popup {
 			// Обновим высоту контейнеров других социальных сетей
 			update_option( $scp_prefix . 'setting_facebook_height',                  400 );
 			update_option( $scp_prefix . 'setting_vkontakte_height',                 400 );
-			update_option( $scp_prefix . 'setting_odnoklassniki_height',             400 );
 
 			update_option( $version, '0.5' );
 			self::set_scp_version( '0.5' );
